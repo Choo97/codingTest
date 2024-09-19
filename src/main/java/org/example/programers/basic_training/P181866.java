@@ -1,15 +1,23 @@
 package org.example.programers.basic_training;
 
 import java.util.Arrays;
+import java.util.StringTokenizer;
 
 public class P181866 {
 
     public String[] solution(String myString) {
-        String[] xes = myString.split("x");
+        StringTokenizer st = new StringTokenizer(myString, "x", false);
 
-        Arrays.sort(xes, (o1, o2) -> o1.compareTo(o2));
+        int countTokens = st.countTokens();
+        String[] strings = new String[countTokens];
 
-        return xes;
+        for (int i = 0; i < countTokens; i++) {
+            strings[i] = st.nextToken();
+        }
+
+        Arrays.sort(strings, (o1, o2) -> o1.compareTo(o2));
+
+        return strings;
     }
 
 }
